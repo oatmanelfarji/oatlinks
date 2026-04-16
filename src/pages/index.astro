@@ -1,0 +1,140 @@
+---
+import '../style.css';
+import { Image, Picture } from 'astro:assets';
+
+// Import local images
+import logoImg from '../img/logo.png';
+import githubIcon from '../img/icons8-github-94.png';
+import gitlabIcon from '../img/icons8-gitlab-96.png';
+import instagramIcon from '../img/icons8-instagram-94.png';
+import linkedinIcon from '../img/icons8-linkedin-94.png';
+import xIcon from '../img/icons8-x-90.png';
+
+const siteTitle = "OATLinks | Otheman El Farji";
+const siteDescription = "All my professional social media links, portfolio, and projects in one place.";
+const siteUrl = "https://oatlinks.netlify.app"; // Assuming this based on conversation history
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<title>{siteTitle}</title>
+		<meta name="description" content={siteDescription} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="article:author" content="Otheman El Farji" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:title" content={siteTitle} />
+		<meta property="og:description" content={siteDescription} />
+		<meta property="og:image" content={`${siteUrl}/logo.png`} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={siteUrl} />
+		<meta property="twitter:title" content={siteTitle} />
+		<meta property="twitter:description" content={siteDescription} />
+		<meta property="twitter:image" content={`${siteUrl}/logo.png`} />
+
+		<base target="_blank" />
+		<!-- Preload Inter font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	</head>
+		<div class="particles-container">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg" class="background" alt="" />
+			{[...Array(100)].map(() => (
+				<div 
+					class="circle-container" 
+					style={{
+						"--start-x": `${Math.random() * 100}vw`,
+						"--start-y": `${Math.random() * 10 + 100}vh`,
+						"--end-x": `${Math.random() * 100}vw`,
+						"--end-y": `${-(Math.random() * 30 + 100)}vh`,
+						"--duration": `${28000 + Math.random() * 9000}ms`,
+						"--delay": `${-Math.random() * 37000}ms`,
+						"--size": `${Math.random() * 8}px`,
+						"--circle-delay": `${Math.random() * 4000}ms`,
+					}}
+				>
+					<div class="circle" />
+				</div>
+			))}
+		</div>
+
+		<div class="content-wrapper">
+			<div class="container">
+				<header>
+					<Picture 
+						src={logoImg} 
+						alt="Otheman El Farji" 
+						class="profile-img" 
+						formats={['avif', 'webp']}
+						width={192}
+						height={192}
+						loading="eager"
+					/>
+					<h1>OATLinks</h1>
+					<p class="bio">All my social media & projects links</p>
+				</header>
+
+				<main>
+					<a href="https://oatman.netlify.app/" class="link-card" rel="noopener noreferrer">
+						<Image src={logoImg} alt="Oatman" class="link-icon" />
+						<div class="link-info">
+							<span class="link-title">Portfolio</span>
+						</div>
+					</a>
+
+					<a href="https://github.com/oatmanelfarji" class="link-card" rel="noopener noreferrer">
+						<Image src={githubIcon} alt="Github" class="link-icon" />
+						<div class="link-info">
+							<span class="link-title">Github</span>
+						</div>
+					</a>
+
+					<a href="https://gitlab.com/oatlinks" class="link-card" rel="noopener noreferrer">
+						<Image src={gitlabIcon} alt="Gitlab" class="link-icon" />
+						<div class="link-info">
+							<span class="link-title">Gitlab</span>
+						</div>
+					</a>
+
+					<a href="https://www.linkedin.com/in/elfarji-otheman-3b772b272/" class="link-card" rel="noopener noreferrer">
+						<Image src={linkedinIcon} alt="Linkedin" class="link-icon" />
+						<div class="link-info">
+							<span class="link-title">Linkedin</span>
+						</div>
+					</a>
+
+					<a href="https://x.com/EOtheman9" class="link-card" rel="noopener noreferrer">
+						<Image src={xIcon} alt="X" class="link-icon" />
+						<div class="link-info">
+							<span class="link-title">X</span>
+						</div>
+					</a>
+
+					<a href="https://www.instagram.com/themediumbonsai" class="link-card" rel="noopener noreferrer">
+						<Image src={instagramIcon} alt="Instagram" class="link-icon" />
+						<div class="link-info">
+							<span class="link-title">Instagram</span>
+						</div>
+					</a>
+
+					<a href="https://ts-games.netlify.app/" class="link-card" rel="noopener noreferrer">
+						<Image src={logoImg} alt="TS Games" class="link-icon" />
+						<div class="link-info">
+							<span class="link-title">TS Games</span>
+						</div>
+					</a>
+				</main>
+				<p class="message">all your dreams can come true<br>if you have the courage to pursue them</p>
+			</div>
+		</div>
+	</body>
+</html>
